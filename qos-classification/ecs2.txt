@@ -1,0 +1,336 @@
+  ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ec2-user@ip-172-31-35-67 ~]$ ls
+[ec2-user@ip-172-31-35-67 ~]$ git clone https://github.com/ellammal0503/Multimodel_optimized.git
+-bash: git: command not found
+[ec2-user@ip-172-31-35-67 ~]$ git
+-bash: git: command not found
+[ec2-user@ip-172-31-35-67 ~]$ sudo yum install git -y
+Amazon Linux 2023 Kernel Livepatch repository                                                                                    69 kB/s |  19 kB     00:00    
+Last metadata expiration check: 0:00:01 ago on Tue Aug 12 15:49:31 2025.
+Dependencies resolved.
+================================================================================================================================================================
+ Package                                 Architecture                  Version                                         Repository                          Size
+================================================================================================================================================================
+Installing:
+ git                                     x86_64                        2.50.1-1.amzn2023.0.1                           amazonlinux                         53 k
+Installing dependencies:
+ git-core                                x86_64                        2.50.1-1.amzn2023.0.1                           amazonlinux                        4.9 M
+ git-core-doc                            noarch                        2.50.1-1.amzn2023.0.1                           amazonlinux                        2.8 M
+ perl-Error                              noarch                        1:0.17029-5.amzn2023.0.2                        amazonlinux                         41 k
+ perl-File-Find                          noarch                        1.37-477.amzn2023.0.7                           amazonlinux                         25 k
+ perl-Git                                noarch                        2.50.1-1.amzn2023.0.1                           amazonlinux                         41 k
+ perl-TermReadKey                        x86_64                        2.38-9.amzn2023.0.2                             amazonlinux                         36 k
+ perl-lib                                x86_64                        0.65-477.amzn2023.0.7                           amazonlinux                         15 k
+
+Transaction Summary
+================================================================================================================================================================
+Install  8 Packages
+
+Total download size: 7.9 M
+Installed size: 41 M
+Downloading Packages:
+(1/8): git-2.50.1-1.amzn2023.0.1.x86_64.rpm                                                                                     1.1 MB/s |  53 kB     00:00    
+(2/8): git-core-doc-2.50.1-1.amzn2023.0.1.noarch.rpm                                                                             37 MB/s | 2.8 MB     00:00    
+(3/8): perl-Error-0.17029-5.amzn2023.0.2.noarch.rpm                                                                             1.3 MB/s |  41 kB     00:00    
+(4/8): git-core-2.50.1-1.amzn2023.0.1.x86_64.rpm                                                                                 46 MB/s | 4.9 MB     00:00    
+(5/8): perl-File-Find-1.37-477.amzn2023.0.7.noarch.rpm                                                                          779 kB/s |  25 kB     00:00    
+(6/8): perl-Git-2.50.1-1.amzn2023.0.1.noarch.rpm                                                                                1.3 MB/s |  41 kB     00:00    
+(7/8): perl-TermReadKey-2.38-9.amzn2023.0.2.x86_64.rpm                                                                          1.6 MB/s |  36 kB     00:00    
+(8/8): perl-lib-0.65-477.amzn2023.0.7.x86_64.rpm                                                                                749 kB/s |  15 kB     00:00    
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                            48 MB/s | 7.9 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                        1/1 
+  Installing       : git-core-2.50.1-1.amzn2023.0.1.x86_64                                                                                                  1/8 
+  Installing       : git-core-doc-2.50.1-1.amzn2023.0.1.noarch                                                                                              2/8 
+  Installing       : perl-lib-0.65-477.amzn2023.0.7.x86_64                                                                                                  3/8 
+  Installing       : perl-TermReadKey-2.38-9.amzn2023.0.2.x86_64                                                                                            4/8 
+  Installing       : perl-File-Find-1.37-477.amzn2023.0.7.noarch                                                                                            5/8 
+  Installing       : perl-Error-1:0.17029-5.amzn2023.0.2.noarch                                                                                             6/8 
+  Installing       : perl-Git-2.50.1-1.amzn2023.0.1.noarch                                                                                                  7/8 
+  Installing       : git-2.50.1-1.amzn2023.0.1.x86_64                                                                                                       8/8 
+  Running scriptlet: git-2.50.1-1.amzn2023.0.1.x86_64                                                                                                       8/8 
+  Verifying        : git-2.50.1-1.amzn2023.0.1.x86_64                                                                                                       1/8 
+  Verifying        : git-core-2.50.1-1.amzn2023.0.1.x86_64                                                                                                  2/8 
+  Verifying        : git-core-doc-2.50.1-1.amzn2023.0.1.noarch                                                                                              3/8 
+  Verifying        : perl-Error-1:0.17029-5.amzn2023.0.2.noarch                                                                                             4/8 
+  Verifying        : perl-File-Find-1.37-477.amzn2023.0.7.noarch                                                                                            5/8 
+  Verifying        : perl-Git-2.50.1-1.amzn2023.0.1.noarch                                                                                                  6/8 
+  Verifying        : perl-TermReadKey-2.38-9.amzn2023.0.2.x86_64                                                                                            7/8 
+  Verifying        : perl-lib-0.65-477.amzn2023.0.7.x86_64                                                                                                  8/8 
+
+Installed:
+  git-2.50.1-1.amzn2023.0.1.x86_64                     git-core-2.50.1-1.amzn2023.0.1.x86_64                git-core-doc-2.50.1-1.amzn2023.0.1.noarch         
+  perl-Error-1:0.17029-5.amzn2023.0.2.noarch           perl-File-Find-1.37-477.amzn2023.0.7.noarch          perl-Git-2.50.1-1.amzn2023.0.1.noarch             
+  perl-TermReadKey-2.38-9.amzn2023.0.2.x86_64          perl-lib-0.65-477.amzn2023.0.7.x86_64               
+
+Complete!
+[ec2-user@ip-172-31-35-67 ~]$ git clone https://github.com/ellammal0503/Multimodel_optimized.git
+Cloning into 'Multimodel_optimized'...
+remote: Enumerating objects: 56, done.
+remote: Counting objects: 100% (56/56), done.
+remote: Compressing objects: 100% (52/52), done.
+remote: Total 56 (delta 4), reused 56 (delta 4), pack-reused 0 (from 0)
+Receiving objects: 100% (56/56), 3.35 MiB | 33.34 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+[ec2-user@ip-172-31-35-67 ~]$ ls
+Multimodel_optimized
+[ec2-user@ip-172-31-35-67 ~]$ cd Multimodel_optimized/
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ ls
+ Dockerfile           encoders   models               response_1755010146890.txt          'train_all_models copy.py'
+ __pycache__          main.py    qos-classification   schema.py                            train_all_models.py
+ docker-compose.yml   metrics    requirements.txt     synthetic_5g_qos_dataset_10000.csv   utils.py
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ cat /etc/os-release
+NAME="Amazon Linux"
+VERSION="2023"
+ID="amzn"
+ID_LIKE="fedora"
+VERSION_ID="2023"
+PLATFORM_ID="platform:al2023"
+PRETTY_NAME="Amazon Linux 2023.8.20250808"
+ANSI_COLOR="0;33"
+CPE_NAME="cpe:2.3:o:amazon:amazon_linux:2023"
+HOME_URL="https://aws.amazon.com/linux/amazon-linux-2023/"
+DOCUMENTATION_URL="https://docs.aws.amazon.com/linux/"
+SUPPORT_URL="https://aws.amazon.com/premiumsupport/"
+BUG_REPORT_URL="https://github.com/amazonlinux/amazon-linux-2023"
+VENDOR_NAME="AWS"
+VENDOR_URL="https://aws.amazon.com/"
+SUPPORT_END="2029-06-30"
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo dnf install docker -y
+Last metadata expiration check: 0:00:59 ago on Tue Aug 12 15:49:31 2025.
+Dependencies resolved.
+================================================================================================================================================================
+ Package                                      Architecture                 Version                                      Repository                         Size
+================================================================================================================================================================
+Installing:
+ docker                                       x86_64                       25.0.8-1.amzn2023.0.5                        amazonlinux                        46 M
+Installing dependencies:
+ container-selinux                            noarch                       3:2.233.0-1.amzn2023                         amazonlinux                        55 k
+ containerd                                   x86_64                       2.0.5-1.amzn2023.0.2                         amazonlinux                        26 M
+ iptables-libs                                x86_64                       1.8.8-3.amzn2023.0.2                         amazonlinux                       401 k
+ iptables-nft                                 x86_64                       1.8.8-3.amzn2023.0.2                         amazonlinux                       183 k
+ libcgroup                                    x86_64                       3.0-1.amzn2023.0.1                           amazonlinux                        75 k
+ libnetfilter_conntrack                       x86_64                       1.0.8-2.amzn2023.0.2                         amazonlinux                        58 k
+ libnfnetlink                                 x86_64                       1.0.1-19.amzn2023.0.2                        amazonlinux                        30 k
+ libnftnl                                     x86_64                       1.2.2-2.amzn2023.0.2                         amazonlinux                        84 k
+ pigz                                         x86_64                       2.5-1.amzn2023.0.3                           amazonlinux                        83 k
+ runc                                         x86_64                       1.2.6-1.amzn2023.0.1                         amazonlinux                       3.7 M
+
+Transaction Summary
+================================================================================================================================================================
+Install  11 Packages
+
+Total download size: 77 M
+Installed size: 292 M
+Downloading Packages:
+(1/11): container-selinux-2.233.0-1.amzn2023.noarch.rpm                                                                         1.4 MB/s |  55 kB     00:00    
+(2/11): iptables-libs-1.8.8-3.amzn2023.0.2.x86_64.rpm                                                                           9.2 MB/s | 401 kB     00:00    
+(3/11): iptables-nft-1.8.8-3.amzn2023.0.2.x86_64.rpm                                                                            5.8 MB/s | 183 kB     00:00    
+(4/11): libcgroup-3.0-1.amzn2023.0.1.x86_64.rpm                                                                                 2.8 MB/s |  75 kB     00:00    
+(5/11): libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64.rpm                                                                  2.5 MB/s |  58 kB     00:00    
+(6/11): libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64.rpm                                                                           1.3 MB/s |  30 kB     00:00    
+(7/11): libnftnl-1.2.2-2.amzn2023.0.2.x86_64.rpm                                                                                3.3 MB/s |  84 kB     00:00    
+(8/11): pigz-2.5-1.amzn2023.0.3.x86_64.rpm                                                                                      2.4 MB/s |  83 kB     00:00    
+(9/11): containerd-2.0.5-1.amzn2023.0.2.x86_64.rpm                                                                               65 MB/s |  26 MB     00:00    
+(10/11): runc-1.2.6-1.amzn2023.0.1.x86_64.rpm                                                                                    20 MB/s | 3.7 MB     00:00    
+(11/11): docker-25.0.8-1.amzn2023.0.5.x86_64.rpm                                                                                 64 MB/s |  46 MB     00:00    
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                           103 MB/s |  77 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                        1/1 
+  Installing       : runc-1.2.6-1.amzn2023.0.1.x86_64                                                                                                      1/11 
+  Installing       : containerd-2.0.5-1.amzn2023.0.2.x86_64                                                                                                2/11 
+  Running scriptlet: containerd-2.0.5-1.amzn2023.0.2.x86_64                                                                                                2/11 
+  Installing       : pigz-2.5-1.amzn2023.0.3.x86_64                                                                                                        3/11 
+  Installing       : libnftnl-1.2.2-2.amzn2023.0.2.x86_64                                                                                                  4/11 
+  Installing       : libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64                                                                                             5/11 
+  Installing       : libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64                                                                                    6/11 
+  Installing       : iptables-libs-1.8.8-3.amzn2023.0.2.x86_64                                                                                             7/11 
+  Installing       : iptables-nft-1.8.8-3.amzn2023.0.2.x86_64                                                                                              8/11 
+  Running scriptlet: iptables-nft-1.8.8-3.amzn2023.0.2.x86_64                                                                                              8/11 
+  Installing       : libcgroup-3.0-1.amzn2023.0.1.x86_64                                                                                                   9/11 
+  Running scriptlet: container-selinux-3:2.233.0-1.amzn2023.noarch                                                                                        10/11 
+  Installing       : container-selinux-3:2.233.0-1.amzn2023.noarch                                                                                        10/11 
+  Running scriptlet: container-selinux-3:2.233.0-1.amzn2023.noarch                                                                                        10/11 
+  Running scriptlet: docker-25.0.8-1.amzn2023.0.5.x86_64                                                                                                  11/11 
+  Installing       : docker-25.0.8-1.amzn2023.0.5.x86_64                                                                                                  11/11 
+  Running scriptlet: docker-25.0.8-1.amzn2023.0.5.x86_64                                                                                                  11/11 
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /usr/lib/systemd/system/docker.socket.
+
+  Running scriptlet: container-selinux-3:2.233.0-1.amzn2023.noarch                                                                                        11/11 
+  Running scriptlet: docker-25.0.8-1.amzn2023.0.5.x86_64                                                                                                  11/11 
+  Verifying        : container-selinux-3:2.233.0-1.amzn2023.noarch                                                                                         1/11 
+  Verifying        : containerd-2.0.5-1.amzn2023.0.2.x86_64                                                                                                2/11 
+  Verifying        : docker-25.0.8-1.amzn2023.0.5.x86_64                                                                                                   3/11 
+  Verifying        : iptables-libs-1.8.8-3.amzn2023.0.2.x86_64                                                                                             4/11 
+  Verifying        : iptables-nft-1.8.8-3.amzn2023.0.2.x86_64                                                                                              5/11 
+  Verifying        : libcgroup-3.0-1.amzn2023.0.1.x86_64                                                                                                   6/11 
+  Verifying        : libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64                                                                                    7/11 
+  Verifying        : libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64                                                                                             8/11 
+  Verifying        : libnftnl-1.2.2-2.amzn2023.0.2.x86_64                                                                                                  9/11 
+  Verifying        : pigz-2.5-1.amzn2023.0.3.x86_64                                                                                                       10/11 
+  Verifying        : runc-1.2.6-1.amzn2023.0.1.x86_64                                                                                                     11/11 
+
+Installed:
+  container-selinux-3:2.233.0-1.amzn2023.noarch               containerd-2.0.5-1.amzn2023.0.2.x86_64             docker-25.0.8-1.amzn2023.0.5.x86_64          
+  iptables-libs-1.8.8-3.amzn2023.0.2.x86_64                   iptables-nft-1.8.8-3.amzn2023.0.2.x86_64           libcgroup-3.0-1.amzn2023.0.1.x86_64          
+  libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64          libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64          libnftnl-1.2.2-2.amzn2023.0.2.x86_64         
+  pigz-2.5-1.amzn2023.0.3.x86_64                              runc-1.2.6-1.amzn2023.0.1.x86_64                  
+
+Complete!
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker run -d -p 8000:8000 qos-classifier-api
+docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
+See 'docker run --help'.
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ ls
+ Dockerfile           encoders   models               response_1755010146890.txt          'train_all_models copy.py'
+ __pycache__          main.py    qos-classification   schema.py                            train_all_models.py
+ docker-compose.yml   metrics    requirements.txt     synthetic_5g_qos_dataset_10000.csv   utils.py
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker run -d -p 8000:8000 qos-classifier-api
+docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
+See 'docker run --help'.
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker ps
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo systemctl start docker
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/usr/lib/systemd/system/docker.service; disabled; preset: disabled)
+     Active: active (running) since Tue 2025-08-12 15:53:03 UTC; 33s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+    Process: 28641 ExecStartPre=/bin/mkdir -p /run/docker (code=exited, status=0/SUCCESS)
+    Process: 28654 ExecStartPre=/usr/libexec/docker/docker-setup-runtimes.sh (code=exited, status=0/SUCCESS)
+   Main PID: 28657 (dockerd)
+      Tasks: 9
+     Memory: 30.3M
+        CPU: 372ms
+     CGroup: /system.slice/docker.service
+             └─28657 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --default-ulimit nofile=32768:65536
+
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal systemd[1]: Starting docker.service - Docker Application Container Engine...
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:02.450594209Z" level=info msg="Starting up"
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:02.516302982Z" level=info msg="Loading containers: start."
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:02.980100401Z" level=info msg="Loading containers: done."
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:02.998145492Z" level=info msg="Docker daemon" commit=71907ca containerd-sna>
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:02.998402372Z" level=info msg="Daemon has completed initialization"
+Aug 12 15:53:03 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:03.038954162Z" level=info msg="API listen on /run/docker.sock"
+Aug 12 15:53:03 ip-172-31-35-67.ec2.internal systemd[1]: Started docker.service - Docker Application Container Engine.
+...skipping...
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/usr/lib/systemd/system/docker.service; disabled; preset: disabled)
+     Active: active (running) since Tue 2025-08-12 15:53:03 UTC; 33s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+    Process: 28641 ExecStartPre=/bin/mkdir -p /run/docker (code=exited, status=0/SUCCESS)
+    Process: 28654 ExecStartPre=/usr/libexec/docker/docker-setup-runtimes.sh (code=exited, status=0/SUCCESS)
+   Main PID: 28657 (dockerd)
+      Tasks: 9
+     Memory: 30.3M
+        CPU: 372ms
+     CGroup: /system.slice/docker.service
+             └─28657 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --default-ulimit nofile=32768:65536
+
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal systemd[1]: Starting docker.service - Docker Application Container Engine...
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:02.450594209Z" level=info msg="Starting up"
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:02.516302982Z" level=info msg="Loading containers: start."
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:02.980100401Z" level=info msg="Loading containers: done."
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:02.998145492Z" level=info msg="Docker daemon" commit=71907ca containerd-sna>
+Aug 12 15:53:02 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:02.998402372Z" level=info msg="Daemon has completed initialization"
+Aug 12 15:53:03 ip-172-31-35-67.ec2.internal dockerd[28657]: time="2025-08-12T15:53:03.038954162Z" level=info msg="API listen on /run/docker.sock"
+Aug 12 15:53:03 ip-172-31-35-67.ec2.internal systemd[1]: Started docker.service - Docker Application Container Engine.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker run -d -p 8000:8000 qos-classifier-api
+Unable to find image 'qos-classifier-api:latest' locally
+docker: Error response from daemon: pull access denied for qos-classifier-api, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ ls
+ Dockerfile           encoders   models               response_1755010146890.txt          'train_all_models copy.py'
+ __pycache__          main.py    qos-classification   schema.py                            train_all_models.py
+ docker-compose.yml   metrics    requirements.txt     synthetic_5g_qos_dataset_10000.csv   utils.py
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ ls
+ Dockerfile           encoders   models               response_1755010146890.txt          'train_all_models copy.py'
+ __pycache__          main.py    qos-classification   schema.py                            train_all_models.py
+ docker-compose.yml   metrics    requirements.txt     synthetic_5g_qos_dataset_10000.csv   utils.py
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker run -d -p 8000:8000 qos-classifier-api
+Unable to find image 'qos-classifier-api:latest' locally
+docker: Error response from daemon: pull access denied for qos-classifier-api, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker run -d -p 8000:8000 qos-classifier-api^C
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker run -d -p 8000:8000 qos-classifier-api
+Unable to find image 'qos-classifier-api:latest' locally
+docker: Error response from daemon: pull access denied for qos-classifier-api, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker build -t qos-classifier-api .
+[+] Building 118.1s (10/10) FINISHED                                                                                                             docker:default
+ => [internal] load build definition from Dockerfile                                                                                                       0.0s
+ => => transferring dockerfile: 478B                                                                                                                       0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                                                                                         0.2s
+ => [internal] load .dockerignore                                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                                            0.0s
+ => [1/5] FROM docker.io/library/python:3.9-slim@sha256:4b826e2ca2191c24a03bdbf0c342a73c6ee4ce929eac5ebc47fef78f66b839d6                                   3.0s
+ => => resolve docker.io/library/python:3.9-slim@sha256:4b826e2ca2191c24a03bdbf0c342a73c6ee4ce929eac5ebc47fef78f66b839d6                                   0.0s
+ => => sha256:02ba7daa58b611ed94c8be35617179d4c23f2697ad7c68d96c0de753049fc5f5 14.94MB / 14.94MB                                                           0.2s
+ => => sha256:4b826e2ca2191c24a03bdbf0c342a73c6ee4ce929eac5ebc47fef78f66b839d6 10.41kB / 10.41kB                                                           0.0s
+ => => sha256:e8eb0fa155c06b960988a9ff99b882ef654542f7d022de051b79bab4c4534d71 1.75kB / 1.75kB                                                             0.0s
+ => => sha256:563a905f7a66ef3bd4d02019b2673b65510a5588298d4434061587089143a0e2 5.29kB / 5.29kB                                                             0.0s
+ => => sha256:59e22667830bf04fb35e15ed9c70023e9d121719bb87f0db7f3159ee7c7e0b8d 28.23MB / 28.23MB                                                           0.4s
+ => => sha256:91067d9e380715f9eefb1d983fd5bd87963b4e1f4ebff09f171db071138341f8 3.51MB / 3.51MB                                                             0.1s
+ => => sha256:58b24570cdddb5b19c3f0b31392902adec6f970f3522b1253d83e35cf68a3482 249B / 249B                                                                 0.2s
+ => => extracting sha256:59e22667830bf04fb35e15ed9c70023e9d121719bb87f0db7f3159ee7c7e0b8d                                                                  1.4s
+ => => extracting sha256:91067d9e380715f9eefb1d983fd5bd87963b4e1f4ebff09f171db071138341f8                                                                  0.2s
+ => => extracting sha256:02ba7daa58b611ed94c8be35617179d4c23f2697ad7c68d96c0de753049fc5f5                                                                  0.8s
+ => => extracting sha256:58b24570cdddb5b19c3f0b31392902adec6f970f3522b1253d83e35cf68a3482                                                                  0.0s
+ => [internal] load build context                                                                                                                          0.2s
+ => => transferring context: 11.27MB                                                                                                                       0.2s
+ => [2/5] WORKDIR /app                                                                                                                                     0.3s
+ => [3/5] COPY . .                                                                                                                                         0.1s
+ => [4/5] RUN pip install --upgrade pip                                                                                                                    4.7s
+ => [5/5] RUN pip install -r requirements.txt                                                                                                             78.2s 
+ => exporting to image                                                                                                                                    31.2s 
+ => => exporting layers                                                                                                                                   31.1s 
+ => => writing image sha256:78ecfa8ca1a60d13f6b7e6002527560e37ddc360f8d663d288d7d3c1ef316f43                                                               0.0s 
+ => => naming to docker.io/library/qos-classifier-api                                                                                                      0.0s 
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES                                                                                          
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker run -d -p 8000:8000 qos-classifier-api
+b8d31603b7b1dc921cb09785f6790df816b75ec8b443f12ed0e2be478c6bf152
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ sudo docker ps
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+b8d31603b7b1   qos-classifier-api   "uvicorn main:app --…"   4 seconds ago   Up 3 seconds   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp   vigilant_snyder
+[ec2-user@ip-172-31-35-67 Multimodel_optimized]$ 

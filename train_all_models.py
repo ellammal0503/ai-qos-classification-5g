@@ -8,7 +8,13 @@ import seaborn as sns
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.metrics import classification_report, accuracy_score, confusion_matrix, roc_auc_score, roc_curve
+from sklearn.metrics import (
+    classification_report,
+    accuracy_score,
+    confusion_matrix,
+    roc_auc_score,
+    roc_curve
+)
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
@@ -56,11 +62,11 @@ def train_classical_models(X, y, le_qos):
         "random_forest": RandomForestClassifier(n_estimators=100, random_state=42),
         "svm": Pipeline([
             ("scaler", StandardScaler()),
-            ("svc", SVC(probability=True, random_state=42))
+            ("svc", SVC(kernel='rbf', C=1.0, gamma='scale',probability=True, random_state=42))
         ]),
         "knn": Pipeline([
             ("scaler", StandardScaler()),
-            ("knn", KNeighborsClassifier())
+            ("knn", KNeighborsClassifier(n_neighbors=5))
         ])
     }
 
@@ -91,33 +97,52 @@ def train_classical_models(X, y, le_qos):
 
     return report, preds_dict
 
-def train_deep_models(df, le_qos):
-    from sklearn.model_selection import train_test_split
 
-    # Example sequence data prep — adjust to your actual sequence preprocessing
-    X = np.array(df[["source_ip_enc", "destination_ip_enc", "protocol_enc", "packet_size", "inter_arrival_time_ms", "jitter_ms"]])
-    y = np.array(df["qos_class_enc"])
-    X = X.reshape((X.shape[0], 1, X.shape[1]))  # shape: (samples, timesteps, features)
+def train_deep_models(df, le_qos, sequence_length=5):
+    # Detect features and target automatically
+    features = ["source_ip_enc", "destination_ip_enc", "protocol_enc", 
+                "packet_size", "inter_arrival_time_ms", "jitter_ms"]
+    target = "qos_class_enc"
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # --- 1️⃣ Create Sequences (sliding window) ---
+    X_seq, y_seq = [], []
+    df = df.reset_index(drop=True)
 
-    input_shape = (X_train.shape[1], X_train.shape[2])
-    num_classes = len(le_qos.classes_)
+    for i in range(len(df) - sequence_length):
+        seq = df[features].iloc[i:i+sequence_length].values
+        label = df[target].iloc[i+sequence_length - 1]
+        X_seq.append(seq)
+        y_seq.append(label)
 
+    X_seq = np.array(X_seq)
+    y_seq = to_categorical(y_seq, num_classes=len(le_qos.classes_))
+
+    # --- 2️⃣ Train/Test Split ---
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_seq, y_seq, test_size=0.2, random_state=42
+    )
+
+    # --- 3️⃣ Model input/output sizes ---
+    input_shape = (sequence_length, len(features))
+    num_classes = y_train.shape[1]
+
+    # --- 4️⃣ Model builders ---
     def build_lstm():
-        model = Sequential([
-            LSTM(64, input_shape=input_shape),
-            Dense(num_classes, activation='softmax')
-        ])
-        model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+        model = Sequential()
+        model.add(LSTM(64, input_shape=input_shape))
+        model.add(Dropout(0.3))
+        model.add(Dense(32, activation='relu'))
+        model.add(Dense(num_classes, activation='softmax'))
+        model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
         return model
 
     def build_bilstm():
-        model = Sequential([
-            Bidirectional(LSTM(64), input_shape=input_shape),
-            Dense(num_classes, activation='softmax')
-        ])
-        model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+        model = Sequential()
+        model.add(Bidirectional(LSTM(64), input_shape=input_shape))
+        model.add(Dropout(0.3))
+        model.add(Dense(32, activation='relu'))
+        model.add(Dense(num_classes, activation='softmax'))
+        model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
         return model
 
     models = {
@@ -125,32 +150,33 @@ def train_deep_models(df, le_qos):
         "bilstm": build_bilstm()
     }
 
+    # --- 5️⃣ Train & save reports ---
     report = {}
     preds_dict = {}
-
     os.makedirs("models", exist_ok=True)
 
     for name, model in models.items():
-        model.fit(X_train, y_train, epochs=5, batch_size=32, verbose=0, validation_split=0.1)
+        model.fit(X_train, y_train, epochs=20, batch_size=32, verbose=0, validation_split=0.1)
 
         y_score = model.predict(X_test)
         y_pred = np.argmax(y_score, axis=1)
+        y_true = np.argmax(y_test, axis=1)
 
         # Save model
         model.save(f"models/{name}.h5")
 
-        # Store report & predictions
         report[name] = {
-            "accuracy": float(np.mean(y_pred == y_test)),
-            "classification_report": classification_report(y_test, y_pred, target_names=le_qos.classes_, output_dict=True)
+            "accuracy": float(np.mean(y_pred == y_true)),
+            "classification_report": classification_report(y_true, y_pred, target_names=le_qos.classes_, output_dict=True)
         }
         preds_dict[name] = {
-            "y_true": y_test,
+            "y_true": y_true,
             "y_pred": y_pred,
             "y_score": y_score
         }
 
     return report, preds_dict
+
 
 def train_ip_embedding_model(df):
     # Label encoding
