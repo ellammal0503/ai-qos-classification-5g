@@ -1,7 +1,8 @@
 # Methodology and Workflow
 
 ## 1. Problem Statement
-Brief description of why QoS classification in 5G networks is important.
+Classify User Application Traffic at the Network in a Multi-UE Connected Scenario
+Applications are affected differently under varying traffic conditions, channel states, and coverage scenarios. If the traffic of each UE can be categorized into broader categories, such as Video Streaming, Audio Calls, Video Calls, Gaming, Video Uploads, browsing, texting etc. that can enable the Network to serve a differentiated and curated QoS for each type of traffic. Develop an AI model to analyze a traffic pattern and predict the application category with high accuracy.
 
 ## 2. Objectives
 - Accurate classification of QoS flows  
