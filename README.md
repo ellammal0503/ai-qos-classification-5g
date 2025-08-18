@@ -29,7 +29,7 @@ Classify User Application Traffic at the Network in a Multi-UE Connected Scenari
 
 **Team Name** - Solo Team 
 **Team Members** - Karthick Kumarasamy  
-**Demo Video Link** -   
+**Demo Video Link** -  https://youtu.be/IzitpvzAcys 
 
 
 ---
