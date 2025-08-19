@@ -10,3 +10,48 @@ utils.py → preprocessing, encoder loading, helper functions.
 encoders/ → saved label/feature encoders.
 models/ → trained ML/DL models.
 metrics/ → performance reports, logs, evaluation results.
+
+📝 Code Walkthrough for QoS Classification Project
+1. Overview
+Project implements AI-based QoS classification in 5G networks.
+Uses multiple ML/DL models (Random Forest, SVM, KNN, LSTM, BiLSTM).
+Provides a FastAPI interface for predictions, training, and metrics.
+Deployment via Docker for portability.
+2. Main Components
+📂 5GlogGenerator.py
+Generates synthetic 5G network traffic logs.
+Creates features like latency, jitter, packet loss, throughput.
+Outputs a dataset (synthetic_5g_qos_dataset_10000.csv).
+📂 train_all_models.py
+Trains multiple models (ML + DL).
+Saves trained models into /models/.
+Stores encoders in /encoders/.
+Saves metrics (accuracy, precision, recall) in /metrics/.
+📂 utils.py
+Preprocessing functions (scaling, encoding, sequence padding).
+Utility functions for loading encoders and models.
+📂 schema.py
+Defines Pydantic request/response schemas for FastAPI.
+QoSInputFlat → flat feature input.
+QoSSequenceInput → time-series/sequence input.
+📂 main.py
+Core FastAPI app.
+Endpoints:
+/predict → run inference on new traffic samples.
+/train → retrain models on dataset.
+/metrics → return performance metrics.
+Loads models + encoders at startup.
+📂 Dockerfile & docker-compose.yml
+Defines container environment (Python, dependencies).
+Ensures app can be run anywhere with docker-compose up.
+3. Data Flow
+Data Generation → 5GlogGenerator.py creates synthetic dataset.
+Training → train_all_models.py trains models & saves them.
+API Service → main.py loads trained models & exposes REST API.
+Prediction → User sends network traffic features → /predict → Model returns QoS class.
+Deployment → Docker ensures reproducible environment.
+4. Demo Workflow
+Start API: uvicorn main:app --reload or docker-compose up.
+Test endpoints using Swagger UI (http://127.0.0.1:8000/docs).
+Send traffic samples → get QoS prediction.
+Check metrics from /metrics.
