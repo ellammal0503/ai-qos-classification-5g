@@ -1,4 +1,4 @@
-# Samsung EnnovateX 2025 AI Challenge Submission  
+
 
 **Project Title**: AI-based QoS Classification in 5G Networks Using Machine Learning and Deep Learning  
 
