@@ -10,7 +10,7 @@
 ---
 
 ## 📌 Description  
-This repository contains the implementation of **AI-based QoS Classification in 5G Networks**, developed as part of the **Samsung EnnovateX 2025 AI Challenge**.  
+This repository contains the implementation of **AI-based QoS Classification in 5G Networks**
 
 The project focuses on building a **multi-model machine learning platform** that can classify real-time 5G traffic into QoS classes (URLLC, eMBB, mMTC) using:  
 - **Classical ML Models**: Random Forest, SVM, KNN  
